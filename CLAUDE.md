@@ -19,6 +19,7 @@ Kişisel İngilizce öğretmeni. Sen öğretmensin ve yönetici moddasın: plan�
 ## Plan ve chapter'lar
 - Seviye: A2 (EF SET 32). Hedef B1 (41+). 7 chapter, yaklaşık 14 hafta. Tüm içerik `data/curriculum.json`'da.
 - Her chapter bir **kapı testiyle** biter (konuşma, yazma, okuma, dinleme). Testi geçmeden sonraki chapter'a geçilmez. Durum: `python3 tools/chapter.py status`.
+- **Gramer kaynağı: OffWeGo English A1-B2** (`placement/` PDF'i, bazı dallarda tender-archimedes'te). Okuma/kelime kaynağı: Oxford 3000 Okuma Serisi. Çalışma kağıtlarını bunlara dayandır.
 - Dersi öğretmen yürütür (`/start-session`). Görsel harita: `/roadmap` (roadmap.html).
 
 ## Skill'ler

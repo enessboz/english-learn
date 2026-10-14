@@ -70,31 +70,45 @@ class Sheet:
 
 
 def day01(path):
-    s = Sheet(path, "Day 1 - to be (am / is / are)")
-    s.p("Chapter 1 · Solid Basics · Mini ders (20 dk)", 10)
-    s.h("1. Kural")
-    s.p("Türkçede 'ben öğrenciyim' derken ayrı fiil yok. İngilizcede cümlede mutlaka to be olmalı.")
-    s.table([("Özne", "to be", "Örnek"),
-             ("I", "am", "I am a teacher."),
-             ("he / she / it", "is", "She is from Ankara."),
-             ("you / we / they", "are", "We are friends.")])
-    s.p("Olumsuz: not ekle.  I am not tired.  He is not (isn't) here.  They aren't at home.")
-    s.p("Soru: fiil başa geçer.  Are you a student?  Is she at home?")
-    s.p("Kısa cevap: Yes, I am. / No, she isn't.")
-    s.h("2. Alıştırma: am / is / are yaz")
-    for q in ["I ____ from Turkey.", "My brother ____ 25 years old.", "We ____ at work.",
-              "____ you tired?  (soru)", "She ____ not my teacher.  (olumsuz)",
-              "They ____ in Istanbul.", "It ____ a big city."]:
-        s.p(q, 13, gap=30)
-    s.h("3. Olumsuz ve soru yap")
-    s.write("He is a doctor.  ->  Olumsuz:")
-    s.write("You are late.  ->  Soru:")
-    s.write("They are happy.  ->  Soru:")
-    s.h("4. Kendini yaz (to be ile 3 cümle)")
-    s.p("Adın, mesleğin, nerelisin. Örnek: I am Ali. I am an engineer. I am from Izmir.", 10)
-    s.write("1)", 1)
-    s.write("2)", 1)
-    s.write("3)", 1)
+    s = Sheet(path, "Day 1 - to be (OffWeGo Modül 1)")
+    s.p("Chapter 1 · Mini ders (20 dk) · Kaynak: OffWeGo English, Modül 1 (PDF s.11-15)", 10)
+    s.h("1. Önce kitaptan oku (8 dk): 1.1, 1.2, 1.3 ve 1.9 'Mistake Hospital'")
+    s.p("Aşağısı özet. Asıl anlatım kitapta; kutulardaki ⚠ uyarılara özellikle bak.", 10)
+    s.h("2. Özet")
+    s.p("İngilizce cümle fiilsiz kalmaz: 'Yorgunum' -> I am tired. (I tired ✗)")
+    s.table([("Özne", "to be", "Kısa / olumsuz"),
+             ("I", "am", "I'm / I'm not   (I amn't ✗)"),
+             ("you / we / they", "are", "you're / aren't"),
+             ("he / she / it", "is", "she's / isn't")])
+    s.p("Hava, saat, mesafe için özne it: It is raining. It's five o'clock.  (Is raining ✗)")
+    s.p("Yaş be ile: I'm twenty.  (I have twenty years ✗)")
+    s.p("Soru: be başa gider. Are you a student?   Kısa cevap kısaltılmaz: Yes, I am.  (Yes, I'm ✗)")
+    s.p("Yakın: this / these.   Uzak: that / those.   This is my phone. Those are your keys.")
+    s.h("A. Çekimle: am / is / are / isn't / aren't")
+    for q in ["I ____ a teacher.", "She ____ tired.", "They ____ students.", "It ____ cold today.",
+              "We ____ from Bursa.", "He ____ not late.  (kısa)", "You ____ not ready.  (kısa)"]:
+        s.p(q, 13, gap=28)
+    s.h("B. Aynı cümleyi soru ve olumsuz yap")
+    s.write("They are teachers.   ?  ", 1)
+    s.write("They are teachers.   -  ", 1)
+    s.write("She is happy.   ?  ", 1)
+    s.write("She is happy.   -  ", 1)
+    s.write("It is raining.   ?  ", 1)
+    s.write("It is raining.   -  ", 1)
+    s.h("C. Hatayı bul ve düzelt")
+    s.write("1. I have twenty years.")
+    s.write("2. She very tall.")
+    s.write("3. Are you tired? - Yes, I'm.")
+    s.write("4. I amn't ready.")
+    s.write("5. These is my keys.")
+    s.h("D. Çevir (Türkçe -> İngilizce)")
+    s.write("1) Ben Niğdeliyim. Annem öğretmen, babam mühendis.", 2)
+    s.write("2) Bunlar benim kitaplarım. Şunlar kardeşimin kitapları.", 2)
+    s.write("3) Hava bugün çok soğuk ve yağmurlu.", 2)
+    s.h("E. Kendin: tanışma diyaloğu (6 satır)")
+    s.p("Kitaptaki 1.7 diyaloğu örnek al. İsim, nereden, yaş, öğrenci misin? Kapanışla bitir.", 10)
+    for i in range(1, 7):
+        s.write(f"{i})", 1)
     s.save()
 
 
