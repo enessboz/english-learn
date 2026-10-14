@@ -1,60 +1,307 @@
 {
-  "start_level": "A2 Elementary (EF SET 32)",
-  "target_level": "B1 Intermediate (EF SET 41+)",
-  "daily_plan": [
-    {"name": "Tekrar", "min": 20, "skill": "review", "note": "Vadesi gelen kelimeler, bağlamda"},
-    {"name": "Mini ders", "min": 25, "skill": "start-session", "note": "Bölümün gramer konusu, örneklerle"},
-    {"name": "Okuma + kelime", "min": 35, "skill": "learn-words", "note": "Metin, anlama, kendi cümlen"},
-    {"name": "Yazma", "min": 25, "skill": "work-english", "note": "Kısa paragraf veya iş mesajı"},
-    {"name": "Dinleme", "min": 20, "skill": "listening", "note": "Seviyene uygun klip, özet çıkar"},
-    {"name": "Konuşma", "min": 20, "skill": "speak", "note": "Rol yapma, sonda hata özeti"}
-  ],
-  "short_day_plan": [
-    {"name": "Tekrar", "min": 10}, {"name": "Okuma + kelime", "min": 25},
-    {"name": "Yazma", "min": 15}, {"name": "Konuşma", "min": 10}
-  ],
-  "resources": [
-    {"name": "BBC Learning English (6 Minute English, English at Work)", "use": "dinleme, iş İngilizcesi"},
-    {"name": "VOA Learning English", "use": "yavaş haber, dinleme/okuma"},
-    {"name": "British Council LearnEnglish", "use": "A2-B1 okuma, gramer alıştırmaları"},
-    {"name": "Essential Grammar in Use (Raymond Murphy)", "use": "gramer referansı"}
-  ],
-  "gate_rules": "Otomatik şartlar (çalışılan gün + öğrenilen kelime) tamamlanmalı. Sonra 4 test: konuşma ve yazma >=70/100, okuma >=80%, dinleme >=70%. Kalırsan 3 gün zayıf alana çalış, bir kez daha dene.",
-  "chapters": [
-    {"id": 1, "title": "Solid Basics", "tr": "Temeli sağlamlaştır", "weeks": "1-2", "min_days": 10, "vocab_target": 80,
-     "can_do": ["Kendimi ve ailemi 2 dakika tanıtabilirim", "Günlük rutinimi anlatırım", "Saat, gün ve sayıları rahat kullanırım"],
-     "grammar": ["to be", "present simple", "there is / there are", "can / can't", "a / an / the"],
-     "themes": ["Tanışma", "Aile", "Günlük rutin", "Ev ve eşyalar"],
-     "gate": {"speaking": "2 dk: kendini ve rutinini anlat", "writing": "60 kelime: kendini tanıt", "reading": "~100 kelimelik A2 metin, %80", "listening": "3 dk klip, 5 soru, %70"}},
-    {"id": 2, "title": "Past & Daily Life", "tr": "Geçmişi anlat", "weeks": "3-4", "min_days": 10, "vocab_target": 200,
-     "can_do": ["Dün ve hafta sonu ne yaptığımı anlatırım", "Yemek ve alışverişte derdimi anlatırım", "Kısa bir not ve mesaj yazarım"],
-     "grammar": ["past simple (düzenli/düzensiz)", "past time expressions", "countable / uncountable", "some / any", "question words"],
-     "themes": ["Yemek", "Alışveriş", "Hafta sonu", "Evim ve mahallem"],
-     "gate": {"speaking": "2.5 dk: hafta sonumu anlat", "writing": "70 kelime: geçen hafta sonu", "reading": "~120 kelimelik metin, %80", "listening": "3 dk klip, 5 soru, %70"}},
-    {"id": 3, "title": "Plans & Requests", "tr": "Plan yap, rica et", "weeks": "5-6", "min_days": 10, "vocab_target": 340,
-     "can_do": ["Plan ve niyetlerimi söylerim", "Kibarca rica eder, yol sorarım", "Doktorda ve seyahatte temel iletişim kurarım"],
-     "grammar": ["going to / will", "would like", "can / could (rica)", "prepositions (yer, zaman)", "present continuous"],
-     "themes": ["Seyahat", "Yol tarifi", "Sağlık", "Planlar"],
-     "gate": {"speaking": "3 dk: tatil planı ve rol yapma (otel/yol)", "writing": "80 kelime: bir plan e-postası", "reading": "~150 kelimelik metin, %80", "listening": "4 dk klip, 5 soru, %70"}},
-    {"id": 4, "title": "Telling Stories", "tr": "Hikaye anlat", "weeks": "7-8", "min_days": 10, "vocab_target": 480,
-     "can_do": ["Bir olayı baştan sona anlatırım", "İki şeyi karşılaştırırım", "Neden-sonuç bağlarım (because, so, but)"],
-     "grammar": ["past continuous", "connectors (and, but, because, so, then)", "comparatives / superlatives", "adverbs of manner"],
-     "themes": ["Hobiler", "Filmler ve diziler", "Anılar", "İnsanlar"],
-     "gate": {"speaking": "3 dk: bir hikaye veya anı", "writing": "90 kelime: bir olay hikayesi", "reading": "~180 kelimelik metin, %80", "listening": "4 dk klip, 6 soru, %70"}},
-    {"id": 5, "title": "Work English", "tr": "İş İngilizcesi", "weeks": "9-10", "min_days": 10, "vocab_target": 620,
-     "can_do": ["Kısa profesyonel e-posta yazarım", "Toplantıda basit fikir ve soru sunarım", "Telefonda kendimi tanıtır, mesaj bırakırım"],
-     "grammar": ["present perfect (ever, already, yet)", "polite requests", "email phrases", "meeting phrases"],
-     "themes": ["E-posta", "Toplantı", "Telefon", "Proje ve görevler"],
-     "gate": {"speaking": "3.5 dk: kısa sunum veya toplantı rolü", "writing": "100 kelime: iş e-postası", "reading": "~200 kelimelik iş metni, %80", "listening": "4 dk iş klibi, 6 soru, %70"}},
-    {"id": 6, "title": "Opinions & Advice", "tr": "Fikir ve tavsiye", "weeks": "11-12", "min_days": 10, "vocab_target": 760,
-     "can_do": ["Fikrimi gerekçeyle söylerim", "Tavsiye veririm, kabul/itiraz ederim", "Olası sonuçları anlatırım (if...)"],
-     "grammar": ["should / must / have to", "first conditional", "opinion phrases", "quantifiers (much, many, a lot of)"],
-     "themes": ["Teknoloji", "Sağlık ve yaşam tarzı", "Para", "Tartışma"],
-     "gate": {"speaking": "4 dk: bir konuda fikir ve tartışma", "writing": "110 kelime: fikir paragrafı", "reading": "~220 kelimelik metin, %80", "listening": "5 dk klip, 6 soru, %70"}},
-    {"id": 7, "title": "B1 Gate", "tr": "B1 kapısı", "weeks": "13-14", "min_days": 10, "vocab_target": 900,
-     "can_do": ["Tanıdık konularda 5 dakika akıcı konuşurum", "120 kelimelik düzgün bir metin yazarım", "Orta zorlukta metin ve klipleri anlarım"],
-     "grammar": ["genel tekrar", "tense karışık kullanım", "relative clauses (who, which, that)"],
-     "themes": ["Karışık konular", "İş ve günlük hayat"],
-     "gate": {"speaking": "5 dk serbest konuşma", "writing": "120 kelime: serbest konu", "reading": "~250 kelimelik B1 metin, %80", "listening": "5 dk klip, 7 soru, %70", "final": "Yeni EF SET testi: hedef 41+"}}
-  ]
+ "start_level": "A2 Elementary (EF SET 32)",
+ "target_level": "B1 Intermediate (EF SET 41+)",
+ "daily_plan": [
+  {
+   "name": "Tekrar",
+   "min": 20,
+   "skill": "review",
+   "note": "Vadesi gelen kelimeler, bağlamda"
+  },
+  {
+   "name": "Mini ders",
+   "min": 25,
+   "skill": "start-session",
+   "note": "Bölümün gramer konusu, örneklerle"
+  },
+  {
+   "name": "Okuma + kelime",
+   "min": 35,
+   "skill": "learn-words",
+   "note": "Metin, anlama, kendi cümlen"
+  },
+  {
+   "name": "Yazma",
+   "min": 25,
+   "skill": "work-english",
+   "note": "Kısa paragraf veya iş mesajı"
+  },
+  {
+   "name": "Dinleme",
+   "min": 20,
+   "skill": "listening",
+   "note": "Seviyene uygun klip, özet çıkar"
+  },
+  {
+   "name": "Konuşma",
+   "min": 20,
+   "skill": "speak",
+   "note": "Rol yapma, sonda hata özeti"
+  }
+ ],
+ "short_day_plan": [
+  {
+   "name": "Tekrar",
+   "min": 10
+  },
+  {
+   "name": "Okuma + kelime",
+   "min": 25
+  },
+  {
+   "name": "Yazma",
+   "min": 15
+  },
+  {
+   "name": "Konuşma",
+   "min": 10
+  }
+ ],
+ "resources": [
+  {
+   "name": "OffWeGo English A1-B2 (placement/OffWeGo.English.A1-B2.pdf)",
+   "use": "ANA GRAMER KAYNAĞI: gün gün gramer maddesi, alıştırma, Mistake Hospital. Chapter1=Modül1-3, Ch2=Modül5, Ch3=Modül6 (+4,7), Ch4=Modül8-9, Ch5=Modül10"
+  },
+  {
+   "name": "Oxford 3000 Okuma Serisi (placement/Oxford _3000_book_compressed.pdf)",
+   "use": "okuma + kelime: günde 1 okuma, 8-10 kelime seç; arka yüzde çeviri ve eşleştirme"
+  },
+  {
+   "name": "BBC Learning English (6 Minute English, English at Work)",
+   "use": "dinleme, iş İngilizcesi"
+  },
+  {
+   "name": "VOA Learning English",
+   "use": "yavaş haber, dinleme/okuma"
+  },
+  {
+   "name": "British Council LearnEnglish",
+   "use": "A2-B1 okuma, gramer alıştırmaları"
+  },
+  {
+   "name": "Essential Grammar in Use (Raymond Murphy)",
+   "use": "gramer referansı"
+  }
+ ],
+ "gate_rules": "Otomatik şartlar (çalışılan gün + öğrenilen kelime) tamamlanmalı. Sonra 4 test: konuşma ve yazma >=70/100, okuma >=80%, dinleme >=70%. Kalırsan 3 gün zayıf alana çalış, bir kez daha dene.",
+ "chapters": [
+  {
+   "id": 1,
+   "title": "Solid Basics",
+   "tr": "Temeli sağlamlaştır",
+   "weeks": "1-2",
+   "min_days": 10,
+   "vocab_target": 80,
+   "can_do": [
+    "Kendimi ve ailemi 2 dakika tanıtabilirim",
+    "Günlük rutinimi anlatırım",
+    "Saat, gün ve sayıları rahat kullanırım"
+   ],
+   "grammar": [
+    "to be",
+    "present simple",
+    "there is / there are",
+    "can / can't",
+    "a / an / the"
+   ],
+   "themes": [
+    "Tanışma",
+    "Aile",
+    "Günlük rutin",
+    "Ev ve eşyalar"
+   ],
+   "gate": {
+    "speaking": "2 dk: kendini ve rutinini anlat",
+    "writing": "60 kelime: kendini tanıt",
+    "reading": "~100 kelimelik A2 metin, %80",
+    "listening": "3 dk klip, 5 soru, %70"
+   }
+  },
+  {
+   "id": 2,
+   "title": "Past & Daily Life",
+   "tr": "Geçmişi anlat",
+   "weeks": "3-4",
+   "min_days": 10,
+   "vocab_target": 200,
+   "can_do": [
+    "Dün ve hafta sonu ne yaptığımı anlatırım",
+    "Yemek ve alışverişte derdimi anlatırım",
+    "Kısa bir not ve mesaj yazarım"
+   ],
+   "grammar": [
+    "past simple (düzenli/düzensiz)",
+    "past time expressions",
+    "countable / uncountable",
+    "some / any",
+    "question words"
+   ],
+   "themes": [
+    "Yemek",
+    "Alışveriş",
+    "Hafta sonu",
+    "Evim ve mahallem"
+   ],
+   "gate": {
+    "speaking": "2.5 dk: hafta sonumu anlat",
+    "writing": "70 kelime: geçen hafta sonu",
+    "reading": "~120 kelimelik metin, %80",
+    "listening": "3 dk klip, 5 soru, %70"
+   }
+  },
+  {
+   "id": 3,
+   "title": "Plans & Requests",
+   "tr": "Plan yap, rica et",
+   "weeks": "5-6",
+   "min_days": 10,
+   "vocab_target": 340,
+   "can_do": [
+    "Plan ve niyetlerimi söylerim",
+    "Kibarca rica eder, yol sorarım",
+    "Doktorda ve seyahatte temel iletişim kurarım"
+   ],
+   "grammar": [
+    "going to / will",
+    "would like",
+    "can / could (rica)",
+    "prepositions (yer, zaman)",
+    "present continuous"
+   ],
+   "themes": [
+    "Seyahat",
+    "Yol tarifi",
+    "Sağlık",
+    "Planlar"
+   ],
+   "gate": {
+    "speaking": "3 dk: tatil planı ve rol yapma (otel/yol)",
+    "writing": "80 kelime: bir plan e-postası",
+    "reading": "~150 kelimelik metin, %80",
+    "listening": "4 dk klip, 5 soru, %70"
+   }
+  },
+  {
+   "id": 4,
+   "title": "Telling Stories",
+   "tr": "Hikaye anlat",
+   "weeks": "7-8",
+   "min_days": 10,
+   "vocab_target": 480,
+   "can_do": [
+    "Bir olayı baştan sona anlatırım",
+    "İki şeyi karşılaştırırım",
+    "Neden-sonuç bağlarım (because, so, but)"
+   ],
+   "grammar": [
+    "past continuous",
+    "connectors (and, but, because, so, then)",
+    "comparatives / superlatives",
+    "adverbs of manner"
+   ],
+   "themes": [
+    "Hobiler",
+    "Filmler ve diziler",
+    "Anılar",
+    "İnsanlar"
+   ],
+   "gate": {
+    "speaking": "3 dk: bir hikaye veya anı",
+    "writing": "90 kelime: bir olay hikayesi",
+    "reading": "~180 kelimelik metin, %80",
+    "listening": "4 dk klip, 6 soru, %70"
+   }
+  },
+  {
+   "id": 5,
+   "title": "Work English",
+   "tr": "İş İngilizcesi",
+   "weeks": "9-10",
+   "min_days": 10,
+   "vocab_target": 620,
+   "can_do": [
+    "Kısa profesyonel e-posta yazarım",
+    "Toplantıda basit fikir ve soru sunarım",
+    "Telefonda kendimi tanıtır, mesaj bırakırım"
+   ],
+   "grammar": [
+    "present perfect (ever, already, yet)",
+    "polite requests",
+    "email phrases",
+    "meeting phrases"
+   ],
+   "themes": [
+    "E-posta",
+    "Toplantı",
+    "Telefon",
+    "Proje ve görevler"
+   ],
+   "gate": {
+    "speaking": "3.5 dk: kısa sunum veya toplantı rolü",
+    "writing": "100 kelime: iş e-postası",
+    "reading": "~200 kelimelik iş metni, %80",
+    "listening": "4 dk iş klibi, 6 soru, %70"
+   }
+  },
+  {
+   "id": 6,
+   "title": "Opinions & Advice",
+   "tr": "Fikir ve tavsiye",
+   "weeks": "11-12",
+   "min_days": 10,
+   "vocab_target": 760,
+   "can_do": [
+    "Fikrimi gerekçeyle söylerim",
+    "Tavsiye veririm, kabul/itiraz ederim",
+    "Olası sonuçları anlatırım (if...)"
+   ],
+   "grammar": [
+    "should / must / have to",
+    "first conditional",
+    "opinion phrases",
+    "quantifiers (much, many, a lot of)"
+   ],
+   "themes": [
+    "Teknoloji",
+    "Sağlık ve yaşam tarzı",
+    "Para",
+    "Tartışma"
+   ],
+   "gate": {
+    "speaking": "4 dk: bir konuda fikir ve tartışma",
+    "writing": "110 kelime: fikir paragrafı",
+    "reading": "~220 kelimelik metin, %80",
+    "listening": "5 dk klip, 6 soru, %70"
+   }
+  },
+  {
+   "id": 7,
+   "title": "B1 Gate",
+   "tr": "B1 kapısı",
+   "weeks": "13-14",
+   "min_days": 10,
+   "vocab_target": 900,
+   "can_do": [
+    "Tanıdık konularda 5 dakika akıcı konuşurum",
+    "120 kelimelik düzgün bir metin yazarım",
+    "Orta zorlukta metin ve klipleri anlarım"
+   ],
+   "grammar": [
+    "genel tekrar",
+    "tense karışık kullanım",
+    "relative clauses (who, which, that)"
+   ],
+   "themes": [
+    "Karışık konular",
+    "İş ve günlük hayat"
+   ],
+   "gate": {
+    "speaking": "5 dk serbest konuşma",
+    "writing": "120 kelime: serbest konu",
+    "reading": "~250 kelimelik B1 metin, %80",
+    "listening": "5 dk klip, 7 soru, %70",
+    "final": "Yeni EF SET testi: hedef 41+"
+   }
+  }
+ ]
 }

@@ -1,0 +1,271 @@
+<title>Kelime Kartları</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: one centered column (max 720px), tab bar on top, big card in the middle, three wide grade buttons at the bottom. */
+:root{
+  --bg:#f4f5f2; --surface:#ffffff; --fg:#1d2420; --muted:#5d6a63; --line:#d9dfd9;
+  --accent:#1f6f5c; --accent-fg:#ffffff; --good:#1f7a45; --warn:#9a6200; --bad:#b3342b;
+  --good-bg:#e1f2e7; --warn-bg:#f8ecd2; --bad-bg:#f8e1de; --accent-bg:#dcede8;
+  --f-display:"Fraunces",Georgia,serif; --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a17; --surface:#1d2521; --fg:#e6ece8; --muted:#9aa89f; --line:#33403a;
+  --accent:#5fc1a5; --accent-fg:#0c1a15; --good:#6fd195; --warn:#e5b45a; --bad:#f08a80;
+  --good-bg:#1e3a29; --warn-bg:#3d3017; --bad-bg:#43211d; --accent-bg:#1f3a32; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a17; --surface:#1d2521; --fg:#e6ece8; --muted:#9aa89f; --line:#33403a;
+  --accent:#5fc1a5; --accent-fg:#0c1a15; --good:#6fd195; --warn:#e5b45a; --bad:#f08a80;
+  --good-bg:#1e3a29; --warn-bg:#3d3017; --bad-bg:#43211d; --accent-bg:#1f3a32; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:18px/1.5 var(--f-body);
+  padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{font:600 28px/1.2 var(--f-display);margin:0;text-wrap:balance}
+.sub{color:var(--muted);font-size:15px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tab{min-height:56px;border:2px solid var(--line);background:var(--surface);color:var(--fg);border-radius:14px;font:600 17px var(--f-body);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:14px;font-weight:600;background:var(--warn-bg);color:var(--warn)}
+.stats{display:flex;gap:8px 16px;flex-wrap:wrap;color:var(--muted);font-size:15px;align-items:center}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 22px;min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;text-align:center;width:100%;color:var(--fg);font-family:inherit;cursor:pointer}
+div.card{cursor:default}
+.word{font:600 clamp(36px,9vw,56px)/1.1 var(--f-display);overflow-wrap:anywhere}
+.hint{color:var(--muted);font-size:16px}
+.meaning{font-size:26px;font-weight:700;color:var(--accent)}
+.example{font-size:20px;max-width:34ch;text-wrap:pretty}
+.example b{color:var(--accent)}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn{min-height:56px;padding:0 22px;border-radius:14px;border:2px solid var(--line);background:var(--surface);color:var(--fg);font:600 17px var(--f-body);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.speak{min-height:48px;padding:0 16px;font-size:16px}
+.grades{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.g{min-height:68px;border-radius:16px;border:2px solid;font:700 18px var(--f-body);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:6px}
+.g small{font-weight:400;font-size:13px}
+.g.ok{background:var(--good-bg);color:var(--good);border-color:var(--good)}
+.g.hard{background:var(--warn-bg);color:var(--warn);border-color:var(--warn)}
+.g.no{background:var(--bad-bg);color:var(--bad);border-color:var(--bad)}
+.grades[hidden]{display:none}
+input[type=text]{width:100%;max-width:420px;min-height:60px;font:600 26px var(--f-body);text-align:center;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--fg);padding:0 12px}
+input.good{border-color:var(--good);background:var(--good-bg)} input.bad{border-color:var(--bad);background:var(--bad-bg)}
+.fb{font-size:20px;font-weight:700;min-height:30px}
+.fb.good{color:var(--good)} .fb.bad{color:var(--bad)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.count{border-radius:14px;padding:14px 8px;text-align:center;font-weight:700}
+.count span{display:block;font:600 36px var(--f-display);font-variant-numeric:tabular-nums}
+textarea{width:100%;min-height:180px;resize:vertical;font:16px/1.5 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);color:var(--fg);border:2px solid var(--line);border-radius:14px;padding:12px}
+.empty{color:var(--muted);text-align:center;padding:20px 0}
+.note{font-size:15px;color:var(--muted)}
+.theme{min-height:44px;min-width:44px;border-radius:12px;border:2px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;font:600 15px var(--f-body)}
+@media (max-width:420px){.grades{gap:6px}.g{font-size:16px}.card{padding:22px 14px}}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--accent)}}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:wght@600&display=swap">
+
+<main>
+  <header>
+    <div><h1>Kelime Kartları</h1><div class="sub" id="subtitle"></div></div>
+    <button class="theme" id="themeBtn" type="button" aria-label="Tema değiştir">Tema</button>
+  </header>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-cards" data-tab="cards" type="button">Kartlar</button>
+    <button class="tab" role="tab" id="tab-write" data-tab="write" type="button">Yazma testi</button>
+    <button class="tab" role="tab" id="tab-sum" data-tab="sum" type="button">Özet</button>
+  </div>
+  <section id="view"></section>
+</main>
+
+<script>
+const SNAPSHOT = /*VOCAB_JSON*/ {"generated":"","words":[]};
+const INTERVALS = [1,3,7,14,30,60];
+const DEMO = [
+ ["apple","elma","I eat an apple every morning."],["water","su","Can I have a glass of water?"],
+ ["house","ev","My house is near the station."],["friend","arkadaş","She is my best friend."],
+ ["book","kitap","This book is very interesting."],["work","iş; çalışmak","I work in an office."],
+ ["family","aile","My family lives in Ankara."],["eat","yemek yemek","We eat dinner at seven."],
+ ["big","büyük","They have a big car."],["happy","mutlu","I am happy today."]
+].map(([word,meaning,example])=>({word,meaning,example,topic:"A1",stage:0,due:"0000-00-00",fails:0,demo:true}));
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const iso = d => { const z=n=>String(n).padStart(2,"0"); return d.getFullYear()+"-"+z(d.getMonth()+1)+"-"+z(d.getDate()); };
+const todayStr = () => iso(new Date());
+const addDays = n => { const d=new Date(); d.setDate(d.getDate()+n); return iso(d); };
+
+/* storage (always guarded) */
+const KEY="kelime-kartlari.v1";
+let store={prog:{},session:[]};
+try{ const raw=localStorage.getItem(KEY); if(raw){const o=JSON.parse(raw); if(o&&o.prog&&Array.isArray(o.session)) store=o;} }catch(e){}
+function persist(){ try{ localStorage.setItem(KEY,JSON.stringify(store)); }catch(e){} }
+
+/* deck: snapshot words, local progress wins if newer than the snapshot */
+const key = w => w.trim().toLowerCase();
+const usingDemo = SNAPSHOT.words.length===0;
+function deck(){
+  const base = usingDemo ? DEMO : SNAPSHOT.words;
+  return base.map(w=>{
+    const p=store.prog[key(w.word)];
+    if(p && (usingDemo || (p.at||"") >= (SNAPSHOT.generated||""))) return {...w,stage:p.stage,due:p.due,fails:p.fails};
+    return {...w};
+  });
+}
+/* same logic as srs.py grade: pass -> stage+1 (max 6), interval INTERVALS[stage-1]; fail -> stage 0, fails+1, 1 day */
+function applyGrade(w,result){
+  let stage,fails=w.fails,days;
+  if(result==="bildim"){ stage=Math.min(w.stage+1,INTERVALS.length); days=INTERVALS[stage-1]; }
+  else { stage=0; fails+=1; days=1; }
+  store.prog[key(w.word)]={stage,fails,due:addDays(days),at:todayStr()};
+  store.session=store.session.filter(s=>!(s.word===w.word&&s.mode===state.tab)).concat([{word:w.word,mode:state.tab,result,demo:!!w.demo}]);
+  persist();
+}
+
+const state={tab:"cards",all:false,queue:[],i:0,revealed:false,checked:false};
+function buildQueue(){
+  const t=todayStr(), d=deck();
+  const due=d.filter(w=>w.due<=t).sort((a,b)=>a.due<b.due?-1:1);
+  state.queue = state.all ? d : due;
+  state.i=0; state.revealed=false; state.checked=false;
+}
+
+function speak(text){
+  try{ const u=new SpeechSynthesisUtterance(text); u.lang="en-US"; u.rate=0.9; speechSynthesis.cancel(); speechSynthesis.speak(u); }catch(e){}
+}
+const canSpeak = (()=>{ try{ return "speechSynthesis" in window; }catch(e){ return false; } })();
+const speakBtn = (id,label) => canSpeak ? `<button class="btn speak" type="button" data-speak="${id}">&#128266; ${label}</button>` : "";
+
+function emphasize(sentence,word){
+  const re=new RegExp("\\b"+word.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\w*","i");
+  return esc(sentence).replace(re,m=>"<b>"+m+"</b>");
+}
+function blank(sentence,word){
+  const re=new RegExp("\\b"+word.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\w*","i");
+  return re.test(sentence) ? esc(sentence).replace(re,"_____") : null;
+}
+
+function header(){
+  const n=deck().filter(w=>w.due<=todayStr()).length;
+  $("#subtitle").textContent = usingDemo ? "Örnek deste · 10 kelime" : `${SNAPSHOT.words.length} kelime · bugün ${n} tekrar`;
+}
+function demoBadge(){ return usingDemo ? `<span class="badge">örnek deste</span>` : ""; }
+
+function finishedPanel(msg){
+  return `<div class="panel"><div class="empty">${msg}</div><div class="row">
+    <button class="btn primary" data-act="all" type="button">Tüm kelimeleri çalış</button>
+    <button class="btn" data-act="sum" type="button">Özete git</button></div></div>`;
+}
+
+function renderCards(){
+  const q=state.queue;
+  if(!q.length) return `<div class="stats">${demoBadge()}</div>`+finishedPanel(usingDemo?"Örnek deste boş görünüyor.":"Bugün vadesi gelen kelime yok. İstersen tüm desteyi çalışabilirsin.");
+  if(state.i>=q.length) return finishedPanel(`Tur bitti. ${q.length} kart çalıştın.`);
+  const w=q[state.i];
+  const front=`<button class="card" id="flip" type="button" aria-label="Anlamı göster">
+      <div class="word">${esc(w.word)}</div><div class="hint">Anlamı görmek için dokun</div></button>`;
+  const back=`<div class="card"><div class="word">${esc(w.word)}</div>
+      <div class="meaning">${esc(w.meaning||"(anlam yok)")}</div>
+      ${w.example?`<div class="example">${emphasize(w.example,w.word)}</div>`:""}
+      <div class="row">${speakBtn("w","Kelime")}${w.example?speakBtn("s","Cümle"):""}</div></div>`;
+  return `<div class="stats">${demoBadge()}<span>Kart ${state.i+1} / ${q.length}</span><span>Aşama ${w.stage}/6</span></div>
+    ${state.revealed?back:front}
+    <div class="grades" ${state.revealed?"":"hidden"}>
+      <button class="g ok" data-grade="bildim" type="button">Bildim<small>aşama +1</small></button>
+      <button class="g hard" data-grade="zorlandım" type="button">Zorlandım<small>yarın tekrar</small></button>
+      <button class="g no" data-grade="bilemedim" type="button">Bilemedim<small>yarın tekrar</small></button>
+    </div>`;
+}
+
+function renderWrite(){
+  const q=state.queue.filter(w=>w.example && blank(w.example,w.word)!==null);
+  state.wq=q;
+  if(!q.length) return `<div class="stats">${demoBadge()}</div>`+finishedPanel("Yazma testi için cümlesi olan kelime yok.");
+  if(state.i>=q.length) return finishedPanel(`Test bitti. ${q.length} kelime yazdın.`);
+  const w=q[state.i];
+  return `<div class="stats">${demoBadge()}<span>Soru ${state.i+1} / ${q.length}</span></div>
+   <div class="card" style="cursor:default">
+     <div class="hint">Türkçesi</div><div class="meaning">${esc(w.meaning)}</div>
+     <div class="example">${blank(w.example,w.word)}</div>
+     <input type="text" id="ans" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="İngilizce kelimeyi yaz" aria-label="Cevap" ${state.checked?"disabled":""}>
+     <div class="fb" id="fb" aria-live="polite"></div>
+     <div class="row">
+       ${state.checked?`<button class="btn primary" id="next" type="button">Sonraki</button>${speakBtn("s","Cümleyi dinle")}`
+        :`<button class="btn primary" id="check" type="button">Kontrol et</button><button class="btn" id="giveup" type="button">Bilemedim</button>`}
+     </div></div>`;
+}
+
+function summaryData(){
+  const m=new Map();
+  store.session.filter(s=>!s.demo).forEach(s=>m.set(s.word,s.result));
+  return [...m.entries()];
+}
+function summaryText(){
+  return summaryData().map(([w,r])=>`${w}: ${r}`).join("\n");
+}
+function renderSum(){
+  const all=store.session, real=summaryData();
+  const c={bildim:0,"zorlandım":0,bilemedim:0};
+  (usingDemo?all.map(s=>[s.word,s.result]):real).forEach(([,r])=>c[r]++);
+  const text=summaryText();
+  return `<div class="panel">
+    <div class="stats">${demoBadge()}</div>
+    <div class="counts">
+      <div class="count" style="background:var(--good-bg);color:var(--good)"><span>${c.bildim}</span>Bildim</div>
+      <div class="count" style="background:var(--warn-bg);color:var(--warn)"><span>${c["zorlandım"]}</span>Zorlandım</div>
+      <div class="count" style="background:var(--bad-bg);color:var(--bad)"><span>${c.bilemedim}</span>Bilemedim</div>
+    </div>
+    ${usingDemo?`<div class="note">Örnek deste sonuçları öğretmene gönderilecek metne eklenmez.</div>`:""}
+    ${text?`<label for="sumText" class="note">Bu metni sohbette öğretmene yapıştır:</label>
+      <textarea id="sumText" readonly>${esc(text)}</textarea>
+      <div class="row"><button class="btn primary" id="copy" type="button">Kopyala</button>
+      <button class="btn" id="reset" type="button">Oturumu sıfırla</button></div><div class="note" id="copyMsg" aria-live="polite"></div>`
+     :`<div class="empty">Henüz sonuç yok. Kartlar veya Yazma testi sekmesinden çalışmaya başla.</div>`}
+  </div>`;
+}
+
+function render(){
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.tab===state.tab));
+  header();
+  $("#view").innerHTML = state.tab==="cards"?renderCards():state.tab==="write"?renderWrite():renderSum();
+  const a=$("#ans"); if(a&&!state.checked) a.focus({preventScroll:true});
+}
+function setTab(t){ state.tab=t; state.all=false; if(t!=="sum") buildQueue(); render(); }
+
+function norm(s){ return s.trim().toLowerCase().replace(/[.!?,]/g,""); }
+
+document.addEventListener("click",e=>{
+  const el=e.target.closest("button"); if(!el) return;
+  if(el.dataset.tab) return setTab(el.dataset.tab);
+  if(el.id==="themeBtn"){ const r=document.documentElement;
+    const dark = r.dataset.theme? r.dataset.theme==="dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+    r.dataset.theme = dark?"light":"dark"; return; }
+  if(el.dataset.act==="all"){ state.all=true; state.i=0; state.queue=deck(); state.revealed=false; state.checked=false; return render(); }
+  if(el.dataset.act==="sum") return setTab("sum");
+  if(el.dataset.speak){ const w=(state.tab==="write"?state.wq:state.queue)[state.i]; return speak(el.dataset.speak==="w"?w.word:w.example); }
+  if(el.id==="flip"){ state.revealed=true; render(); const w=state.queue[state.i]; return; }
+  if(el.dataset.grade){ applyGrade(state.queue[state.i],el.dataset.grade); state.i++; state.revealed=false; return render(); }
+  if(el.id==="check"||el.id==="giveup"){
+    const w=state.wq[state.i], inp=$("#ans"), ok=el.id==="check"&&norm(inp.value)===norm(w.word);
+    if(el.id==="check"&&!inp.value.trim()) return inp.focus();
+    applyGrade(w,ok?"bildim":"bilemedim"); state.checked=true; render();
+    const i2=$("#ans"); i2.value=el.id==="check"?inp.value:""; i2.classList.add(ok?"good":"bad");
+    const fb=$("#fb"); fb.className="fb "+(ok?"good":"bad");
+    fb.textContent = ok?"Doğru!":"Doğrusu: "+w.word;
+    if(canSpeak) speak(w.word); return;
+  }
+  if(el.id==="next"){ state.i++; state.checked=false; return render(); }
+  if(el.id==="copy"){
+    const ta=$("#sumText"), msg=$("#copyMsg");
+    const fallback=()=>{ ta.focus(); ta.select(); msg.textContent="Metin seçildi, kopyalamak için basılı tutup Kopyala'yı seç."; };
+    try{ navigator.clipboard.writeText(ta.value).then(()=>msg.textContent="Kopyalandı. Şimdi sohbete yapıştır.",fallback); }catch(err){ fallback(); }
+    return;
+  }
+  if(el.id==="reset"){ store.session=[]; persist(); return render(); }
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Enter"&&e.target.id==="ans"){ e.preventDefault(); const b=$("#check"); if(b) b.click(); }
+  else if(e.key==="Enter"&&state.checked&&$("#next")) $("#next").click();
+});
+
+buildQueue(); render();
+</script>

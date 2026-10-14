@@ -13,3 +13,6 @@
 ## Kurallar (seviyeye göre)
 - Metinler 80-120 kelime, basit cümleler, A2 kelime. B1'e yaklaştıkça uzat.
 - Düzeltmeyi sade tut: tek hata türüne odaklan, cümleyi sadeleştirerek göster.
+
+## Çalışma tercihi
+- Tablet + kalem; ders materyali PDF çalışma kağıdı olarak verilir (worksheets/). Cevaplar sohbete aktarılır. Süreyi öğrenci tutar.
