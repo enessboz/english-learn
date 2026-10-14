@@ -1,0 +1,2 @@
+# Sık hatalar
+(henüz yok)
