@@ -1,7 +1,10 @@
 {
   "hooks": {
     "SessionStart": [
-      { "hooks": [ { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/srs.py\" brief" } ] }
+      { "hooks": [
+        { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/srs.py\" brief" },
+        { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/chapter.py\" brief" }
+      ] }
     ]
   }
 }

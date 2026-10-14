@@ -1,0 +1,155 @@
+<title>English Roadmap</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sol kenarda dikey yol çizgisi, her bölüm bir durak; üstte seviye ve günlük plan şeridi */
+:root{
+  --bg:#f2f5f9; --card:#ffffff; --fg:#13202f; --muted:#566577; --line:#d3dbe5;
+  --accent:#1d4ed8; --accent-soft:#e3ebfc; --amber:#b86e00; --amber-soft:#fdf0d8; --ok:#17794a; --ok-soft:#dff3e8;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1621; --card:#162231; --fg:#e6ecf4; --muted:#93a3b6; --line:#2a3a4e;
+  --accent:#7ea3ff; --accent-soft:#1b2c4d; --amber:#f0b429; --amber-soft:#3a2d10; --ok:#58d39a; --ok-soft:#133426; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1621; --card:#162231; --fg:#e6ecf4; --muted:#93a3b6; --line:#2a3a4e;
+  --accent:#7ea3ff; --accent-soft:#1b2c4d; --amber:#f0b429; --amber-soft:#3a2d10; --ok:#58d39a; --ok-soft:#133426; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-body);margin:0;
+  padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;line-height:1.15}
+h1{font-size:clamp(28px,6vw,40px);font-weight:700}
+h2{font-size:20px;font-weight:700}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sub{color:var(--muted);margin:8px 0 0;max-width:62ch}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.lvl{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.lvl b{font:700 34px/1 var(--f-display)}
+.arrow{color:var(--muted);font-size:22px}
+.skill{display:grid;grid-template-columns:84px 1fr 34px;align-items:center;gap:10px;margin-top:10px;font-size:13px}
+.bar{height:8px;background:var(--line);border-radius:4px;position:relative}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:4px}
+.bar u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--amber)}
+.day{display:flex;height:34px;border-radius:6px;overflow:hidden;margin-top:12px;border:1px solid var(--line)}
+.day span{display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--fg);border-right:1px solid var(--line);min-width:0;overflow:hidden;white-space:nowrap}
+.day span:nth-child(odd){background:var(--accent-soft)}
+.day span:nth-child(even){background:var(--card)}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px 16px;margin:12px 0 0;padding:0;list-style:none;font-size:13px;color:var(--muted)}
+.legend b{color:var(--fg);font-weight:500}
+.path{position:relative;display:flex;flex-direction:column;gap:14px;padding-left:34px}
+.path:before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.stop{position:relative}
+.dot{position:absolute;left:-34px;top:16px;width:24px;height:24px;border-radius:50%;background:var(--card);border:2px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font:500 11px/1 var(--f-mono);color:var(--muted)}
+.stop.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.stop.current .dot{background:var(--amber);border-color:var(--amber);color:#fff;box-shadow:0 0 0 5px var(--amber-soft)}
+details.ch{background:var(--card);border:1px solid var(--line);border-radius:10px}
+.stop.current details.ch{border-color:var(--amber)}
+summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:10px}
+.sum-t{flex:1;min-width:180px}
+.sum-t h3{font-size:18px}
+.sum-t small{color:var(--muted)}
+.tag{font:500 11px/1 var(--f-mono);padding:5px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.stop.current .tag{background:var(--amber-soft);color:var(--amber)}
+.stop.done .tag{background:var(--ok-soft);color:var(--ok)}
+.body{padding:2px 16px 18px;display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:14px}
+.body h4{margin:0 0 6px;font:500 12px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.body ul{margin:0;padding-left:18px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:13px;padding:4px 9px;border:1px solid var(--line);border-radius:6px}
+.gates{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.gates div{border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px}
+.gates b{display:block;font:500 11px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+.prog{display:grid;gap:8px}
+.rule{font-size:13px;color:var(--muted)}
+.res{margin:0;padding-left:18px;font-size:14px}
+footer{font-size:12px;color:var(--muted)}
+</style>
+<div class="wrap" id="app"></div>
+<script>
+const DATA = {"cur": {"start_level": "A2 Elementary (EF SET 32)", "target_level": "B1 Intermediate (EF SET 41+)", "daily_plan": [{"name": "Tekrar", "min": 20, "skill": "review", "note": "Vadesi gelen kelimeler, bağlamda"}, {"name": "Mini ders", "min": 25, "skill": "start-session", "note": "Bölümün gramer konusu, örneklerle"}, {"name": "Okuma + kelime", "min": 35, "skill": "learn-words", "note": "Metin, anlama, kendi cümlen"}, {"name": "Yazma", "min": 25, "skill": "work-english", "note": "Kısa paragraf veya iş mesajı"}, {"name": "Dinleme", "min": 20, "skill": "listening", "note": "Seviyene uygun klip, özet çıkar"}, {"name": "Konuşma", "min": 20, "skill": "speak", "note": "Rol yapma, sonda hata özeti"}], "short_day_plan": [{"name": "Tekrar", "min": 10}, {"name": "Okuma + kelime", "min": 25}, {"name": "Yazma", "min": 15}, {"name": "Konuşma", "min": 10}], "resources": [{"name": "BBC Learning English (6 Minute English, English at Work)", "use": "dinleme, iş İngilizcesi"}, {"name": "VOA Learning English", "use": "yavaş haber, dinleme/okuma"}, {"name": "British Council LearnEnglish", "use": "A2-B1 okuma, gramer alıştırmaları"}, {"name": "Essential Grammar in Use (Raymond Murphy)", "use": "gramer referansı"}], "gate_rules": "Otomatik şartlar (çalışılan gün + öğrenilen kelime) tamamlanmalı. Sonra 4 test: konuşma ve yazma >=70/100, okuma >=80%, dinleme >=70%. Kalırsan 3 gün zayıf alana çalış, bir kez daha dene.", "chapters": [{"id": 1, "title": "Solid Basics", "tr": "Temeli sağlamlaştır", "weeks": "1-2", "min_days": 10, "vocab_target": 80, "can_do": ["Kendimi ve ailemi 2 dakika tanıtabilirim", "Günlük rutinimi anlatırım", "Saat, gün ve sayıları rahat kullanırım"], "grammar": ["to be", "present simple", "there is / there are", "can / can't", "a / an / the"], "themes": ["Tanışma", "Aile", "Günlük rutin", "Ev ve eşyalar"], "gate": {"speaking": "2 dk: kendini ve rutinini anlat", "writing": "60 kelime: kendini tanıt", "reading": "~100 kelimelik A2 metin, %80", "listening": "3 dk klip, 5 soru, %70"}}, {"id": 2, "title": "Past & Daily Life", "tr": "Geçmişi anlat", "weeks": "3-4", "min_days": 10, "vocab_target": 200, "can_do": ["Dün ve hafta sonu ne yaptığımı anlatırım", "Yemek ve alışverişte derdimi anlatırım", "Kısa bir not ve mesaj yazarım"], "grammar": ["past simple (düzenli/düzensiz)", "past time expressions", "countable / uncountable", "some / any", "question words"], "themes": ["Yemek", "Alışveriş", "Hafta sonu", "Evim ve mahallem"], "gate": {"speaking": "2.5 dk: hafta sonumu anlat", "writing": "70 kelime: geçen hafta sonu", "reading": "~120 kelimelik metin, %80", "listening": "3 dk klip, 5 soru, %70"}}, {"id": 3, "title": "Plans & Requests", "tr": "Plan yap, rica et", "weeks": "5-6", "min_days": 10, "vocab_target": 340, "can_do": ["Plan ve niyetlerimi söylerim", "Kibarca rica eder, yol sorarım", "Doktorda ve seyahatte temel iletişim kurarım"], "grammar": ["going to / will", "would like", "can / could (rica)", "prepositions (yer, zaman)", "present continuous"], "themes": ["Seyahat", "Yol tarifi", "Sağlık", "Planlar"], "gate": {"speaking": "3 dk: tatil planı ve rol yapma (otel/yol)", "writing": "80 kelime: bir plan e-postası", "reading": "~150 kelimelik metin, %80", "listening": "4 dk klip, 5 soru, %70"}}, {"id": 4, "title": "Telling Stories", "tr": "Hikaye anlat", "weeks": "7-8", "min_days": 10, "vocab_target": 480, "can_do": ["Bir olayı baştan sona anlatırım", "İki şeyi karşılaştırırım", "Neden-sonuç bağlarım (because, so, but)"], "grammar": ["past continuous", "connectors (and, but, because, so, then)", "comparatives / superlatives", "adverbs of manner"], "themes": ["Hobiler", "Filmler ve diziler", "Anılar", "İnsanlar"], "gate": {"speaking": "3 dk: bir hikaye veya anı", "writing": "90 kelime: bir olay hikayesi", "reading": "~180 kelimelik metin, %80", "listening": "4 dk klip, 6 soru, %70"}}, {"id": 5, "title": "Work English", "tr": "İş İngilizcesi", "weeks": "9-10", "min_days": 10, "vocab_target": 620, "can_do": ["Kısa profesyonel e-posta yazarım", "Toplantıda basit fikir ve soru sunarım", "Telefonda kendimi tanıtır, mesaj bırakırım"], "grammar": ["present perfect (ever, already, yet)", "polite requests", "email phrases", "meeting phrases"], "themes": ["E-posta", "Toplantı", "Telefon", "Proje ve görevler"], "gate": {"speaking": "3.5 dk: kısa sunum veya toplantı rolü", "writing": "100 kelime: iş e-postası", "reading": "~200 kelimelik iş metni, %80", "listening": "4 dk iş klibi, 6 soru, %70"}}, {"id": 6, "title": "Opinions & Advice", "tr": "Fikir ve tavsiye", "weeks": "11-12", "min_days": 10, "vocab_target": 760, "can_do": ["Fikrimi gerekçeyle söylerim", "Tavsiye veririm, kabul/itiraz ederim", "Olası sonuçları anlatırım (if...)"], "grammar": ["should / must / have to", "first conditional", "opinion phrases", "quantifiers (much, many, a lot of)"], "themes": ["Teknoloji", "Sağlık ve yaşam tarzı", "Para", "Tartışma"], "gate": {"speaking": "4 dk: bir konuda fikir ve tartışma", "writing": "110 kelime: fikir paragrafı", "reading": "~220 kelimelik metin, %80", "listening": "5 dk klip, 6 soru, %70"}}, {"id": 7, "title": "B1 Gate", "tr": "B1 kapısı", "weeks": "13-14", "min_days": 10, "vocab_target": 900, "can_do": ["Tanıdık konularda 5 dakika akıcı konuşurum", "120 kelimelik düzgün bir metin yazarım", "Orta zorlukta metin ve klipleri anlarım"], "grammar": ["genel tekrar", "tense karışık kullanım", "relative clauses (who, which, that)"], "themes": ["Karışık konular", "İş ve günlük hayat"], "gate": {"speaking": "5 dk serbest konuşma", "writing": "120 kelime: serbest konu", "reading": "~250 kelimelik B1 metin, %80", "listening": "5 dk klip, 7 soru, %70", "final": "Yeni EF SET testi: hedef 41+"}}]}, "state": {"current": 1, "started": "2026-10-14", "history": []}, "metrics": {"learned": 0, "added": 0, "days": 0}, "pass_min": {"speaking": 70, "writing": 70, "reading": 80, "listening": 70}, "updated": "2026-10-14"};
+const $ = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h != null) e.textContent = h; return e; };
+const add = (p, ...k) => { k.forEach(x => x && p.append(x)); return p; };
+const app = document.getElementById('app');
+const { cur, state, metrics, pass_min } = DATA;
+const chs = cur.chapters;
+const total = cur.daily_plan.reduce((a, b) => a + b.min, 0);
+
+// Başlık
+const head = $('header');
+add(head, $('div', 'eyebrow', 'Kişisel plan'), $('h1', null, 'English Roadmap'),
+  $('p', 'sub', 'Her bölümün sonunda bir kapı testi var. Testi geçmeden sonraki bölüme geçilmez. Plan Claude ile birlikte yürütülür.'));
+
+// Seviye
+const skills = [['Reading', 30], ['Listening', 31], ['Writing', 26], ['Speaking', 40]];
+const lv = $('section', 'panel');
+const row = $('div', 'lvl');
+add(row, add($('div'), $('div', 'eyebrow', 'Şimdi'), $('b', null, 'A2 · 32')),
+  $('span', 'arrow', '→'), add($('div'), $('div', 'eyebrow', 'Hedef'), $('b', null, 'B1 · 41+')),
+  add($('div'), $('div', 'eyebrow', 'Plan'), $('b', null, '≈ 14 hafta')));
+add(lv, $('div', 'eyebrow', 'EF SET · 17 Eylül 2026'), row);
+skills.forEach(([n, v]) => {
+  const bar = $('div', 'bar'); const i = $('i'); i.style.width = v + '%'; const u = $('u'); u.style.left = '41%';
+  add(bar, i, u);
+  add(lv, add($('div', 'skill'), $('span', null, n), bar, $('span', 'mono', v)));
+});
+add(lv, $('p', 'rule', 'Turuncu çizgi B1 eşiği (41). Önce Writing ve Reading yukarı çekilecek.'));
+
+// Günlük plan
+const dp = $('section', 'panel');
+add(dp, $('h2', null, 'Günlük plan'), $('p', 'sub', 'Tam gün ' + total + ' dk. Kısa günde: ' + cur.short_day_plan.map(b => b.name + ' ' + b.min).join(' · ') + ' dk.'));
+const dayBar = $('div', 'day');
+cur.daily_plan.forEach(b => { const s = $('span', null, b.min >= 25 ? b.name : b.name.slice(0, 3)); s.style.flex = b.min; s.title = b.name + ' ' + b.min + ' dk'; dayBar.append(s); });
+const leg = $('ul', 'legend');
+cur.daily_plan.forEach(b => leg.append(add($('li'), add($('b', null, b.name + ' · ' + b.min + ' dk'), ), $('br'), document.createTextNode(b.note))));
+add(dp, dayBar, leg);
+
+// Bölümler
+const path = $('div', 'path');
+chs.forEach(c => {
+  const done = c.id < state.current, now = c.id === state.current;
+  const stop = $('div', 'stop' + (done ? ' done' : '') + (now ? ' current' : ''));
+  stop.append($('div', 'dot', done ? '✓' : c.id));
+  const d = $('details', 'ch'); if (now) d.open = true;
+  const sm = $('summary');
+  add(sm, add($('div', 'sum-t'), $('h3', null, 'Chapter ' + c.id + ' · ' + c.title), $('small', null, c.tr + ' · hafta ' + c.weeks)),
+    $('span', 'tag', done ? 'Tamamlandı' : now ? 'Şu an' : 'Kilitli'));
+  const body = $('div', 'body');
+  if (now) {
+    const p = $('div', 'prog');
+    const mk = (l, v, t) => { const bar = $('div', 'bar'); const i = $('i'); i.style.width = Math.min(100, v / t * 100) + '%'; bar.append(i);
+      return add($('div', 'skill'), $('span', null, l), bar, $('span', 'mono', v + '/' + t)); };
+    add(p, $('h4', null, 'Kapıya ilerleme'), mk('Çalışılan gün', metrics.days, c.min_days), mk('Öğrenilen kelime', metrics.learned, c.vocab_target));
+    body.append(p);
+  }
+  const cd = $('div'); cd.append($('h4', null, 'Bu bölümün sonunda yapabileceksin'));
+  const ul = $('ul'); c.can_do.forEach(x => ul.append($('li', null, x))); cd.append(ul);
+  const gr = $('div'); gr.append($('h4', null, 'Gramer'));
+  const ch = $('div', 'chips'); c.grammar.forEach(x => ch.append($('span', null, x))); gr.append(ch);
+  const th = $('div'); th.append($('h4', null, 'Konular'));
+  const ch2 = $('div', 'chips'); c.themes.forEach(x => ch2.append($('span', null, x))); th.append(ch2);
+  const gt = $('div'); gt.append($('h4', null, 'Kapı testi · geçme notu: konuşma ve yazma ' + pass_min.speaking + ', okuma ' + pass_min.reading + ', dinleme ' + pass_min.listening));
+  const gg = $('div', 'gates');
+  const lab = { speaking: 'Konuşma', writing: 'Yazma', reading: 'Okuma', listening: 'Dinleme', final: 'Final' };
+  Object.entries(c.gate).forEach(([k, v]) => gg.append(add($('div'), $('b', null, lab[k] || k), document.createTextNode(v))));
+  gt.append(gg);
+  add(body, cd, gr, th, gt, $('p', 'rule', 'Ön şart: en az ' + c.min_days + ' gün çalışma ve ' + c.vocab_target + ' kelime (toplam).'));
+  add(d, sm, body); stop.append(d); path.append(stop);
+});
+const pathSec = $('section'); add(pathSec, $('h2', null, 'Bölümler'), $('p', 'sub', 'Kapı kuralı: ' + cur.gate_rules), $('div'), path);
+pathSec.children[2].style.height = '14px';
+
+// Kaynaklar
+const rs = $('section', 'panel'); add(rs, $('h2', null, 'Yardımcı kaynaklar'));
+const rl = $('ul', 'res'); cur.resources.forEach(r => rl.append(add($('li'), $('b', null, r.name), document.createTextNode(' · ' + r.use)))); rs.append(rl);
+
+add(app, head, lv, dp, pathSec, rs, $('footer', null, 'Güncelleme: ' + DATA.updated));
+</script>
