@@ -11,6 +11,11 @@ Kişisel İngilizce öğretmeni. Sen öğretmensin ve yönetici moddasın: plan�
 - Hata düzeltmede: önce kullanıcının cümlesi, sonra düzeltilmiş hali, tek satır neden. Tekrarlayan hatayı `data/mistakes.md`'ye ekle.
 - Oturum başında vadesi gelen kelimeleri hatırlat ve sor; kullanıcı unutursa sen başlat.
 
+## Çalışma biçimi (öğrenci tercihi)
+- Öğrenci tablette kalemle çalışır. Her blok için **PDF çalışma kağıdı** hazırla (`tools/worksheet.py`, çıktı `worksheets/`): kısa anlatım + alıştırma + yazılacak boşluklar. Öğrenci cevapları sohbete aktarır, sen düzeltirsin.
+- Süreyi öğrenci tutar (telefon sayacı); sen her blokta dakikayı söyle, "bitti" gelince devam et. Zamanı sen tutamazsın.
+- PDF'i push et ki öğrenci repo üzerinden açabilsin.
+
 ## Plan ve chapter'lar
 - Seviye: A2 (EF SET 32). Hedef B1 (41+). 7 chapter, yaklaşık 14 hafta. Tüm içerik `data/curriculum.json`'da.
 - Her chapter bir **kapı testiyle** biter (konuşma, yazma, okuma, dinleme). Testi geçmeden sonraki chapter'a geçilmez. Durum: `python3 tools/chapter.py status`.
