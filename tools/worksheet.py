@@ -98,7 +98,54 @@ def day01(path):
     s.save()
 
 
+def day01_reading(path):
+    s = Sheet(path, "Day 1 - Okuma + kelime: A Normal Monday")
+    s.p("Chapter 1 · Okuma + kelime (25 dk) · Kaynak: Oxford 3000 Okuma Serisi, Okuma 1 (PDF s.5)", 10)
+    s.h("1. Oku (8 dk)")
+    s.p("Oxford 3000 PDF'inde 'A Normal Monday' hikayesini oku. Önce Türkçe çeviriye bakma.")
+    s.p("2 kez oku: ilkinde genel anlam, ikincisinde alttaki 8 kelimenin altını çiz.")
+    s.h("2. Bugünün 8 kelimesi")
+    rows = [("Kelime", "Türkçe", "Örnek"),
+            ("always", "her zaman", "I am always late on Monday."),
+            ("usually", "genellikle", "She usually drinks tea."),
+            ("sometimes", "bazen", "Sometimes we walk home."),
+            ("prepare", "hazırlamak", "He prepares breakfast."),
+            ("check", "kontrol etmek", "Check your bag."),
+            ("free", "boş, serbest", "I have a free hour."),
+            ("cheap", "ucuz", "The cafe is cheap."),
+            ("interesting", "ilginç", "It is an interesting book.")]
+    s.need(len(rows) * 24 + 10)
+    for i, r in enumerate(rows):
+        s.c.setFont("B" if i == 0 else "R", 11)
+        x = M
+        for cell, w in zip(r, (110, 110, 280)):
+            s.c.drawString(x + 4, s.y - 16, cell)
+            x += w
+        s.c.line(M, s.y - 22, M + 500, s.y - 22)
+        s.y -= 24
+    s.y -= 6
+    s.p("Not: always / usually / sometimes sıklık zarfı. Fiilden önce gelir: He usually wakes up at six.", 10)
+    s.h("3. Anlama soruları (kısa İngilizce cevap)")
+    s.write("1) What time does Sam usually wake up?")
+    s.write("2) Where does he go sometimes?")
+    s.write("3) Is the cafe expensive?  (Yes/No + kısa cümle)")
+    s.write("4) How long does he train?")
+    s.h("4. Boşluğu doldur (yukarıdaki 8 kelimeden)")
+    for q in ["I ______ wake up at seven. It is my routine, every day.",
+              "This restaurant is not expensive. It is ______.",
+              "I have two ______ hours today. Let's meet.",
+              "Please ______ the door before you leave."]:
+        s.p(q, 12, gap=30)
+    s.h("5. Kendi cümlelerin (aktif kullanım)")
+    s.p("Kendi Pazartesi'n hakkında 3 cümle. En az 3 farklı yeni kelime kullan.", 10)
+    s.write("1)")
+    s.write("2)")
+    s.write("3)")
+    s.save()
+
+
 if __name__ == "__main__":
     name = sys.argv[1]
-    globals()[name](f"worksheets/{name}_to-be.pdf")
-    print(f"worksheets/{name}_to-be.pdf")
+    out = sys.argv[2] if len(sys.argv) > 2 else f"worksheets/{name}.pdf"
+    globals()[name](out)
+    print(out)
