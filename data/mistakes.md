@@ -15,3 +15,5 @@
 - Düzeltirken eski fiili silmeyi unutma: "They are is happy" -> They are happy.
 - Küçük kayıp: "Are you parents" -> Are your parents; G4 boş bırakıldı (Yes, I am).
 - Güçlü: am/is/are 12/12, kısaltma ve olumsuz 12/12, Wh- soruları 6/6, diyalog 7/7, yaş ve it kuralları.
+
+NOT (öğrenci isteği, 2026-10-21): this/that/these/those konusu PDF'te yeterince anlatılmadı. Gün 2 mini dersinde sıfırdan, gösterme/jest ve örneklerle anlat; Gün 1 mini tekrarı (6 soru) yapılmadı, Gün 2'de yap.
