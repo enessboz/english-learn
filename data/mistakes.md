@@ -17,3 +17,11 @@
 - Güçlü: am/is/are 12/12, kısaltma ve olumsuz 12/12, Wh- soruları 6/6, diyalog 7/7, yaş ve it kuralları.
 
 NOT (öğrenci isteği, 2026-10-21): this/that/these/those konusu PDF'te yeterince anlatılmadı. Gün 2 mini dersinde sıfırdan, gösterme/jest ve örneklerle anlat; Gün 1 mini tekrarı (6 soru) yapılmadı, Gün 2'de yap.
+
+(2026-10-25, Blok 1: this/that, 41/44 = %93; final kontrol 5/6 GEÇTİ, 20 dk)
+- this/that yakın-uzak: düzeldi (A 10/10, C 6/6, D 6/6). G4: "over there" ipucu -> those (these yazdı).
+- TEKRARLAYAN (5. kez): olumlu kısa cevapta kısaltma: "Yes, it's" / "Yes she's" -> Yes, it is / Yes, she is. Kural: be cümle SONUNDA ise kısaltılmaz.
+- Yazım: "machinies" -> machines (çoğul: -s; sadece ünsüz+y sonu -ies), "yar" -> your.
+- Virgül: iki cümleyi virgülle birleştirme (comma splice): "This is my phone, this is my pencil." -> nokta veya "and".
+- H görevi: 6 cümlenin 1'i (these) eksik kaldı.
+Gün 2'de kısa cevap drill'i yap.
