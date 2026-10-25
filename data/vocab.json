@@ -1,1 +1,82 @@
-[]
+[
+ {
+  "word": "flat",
+  "meaning": "daire, apartman dairesi",
+  "example": "I live in a small flat.",
+  "topic": "meet-sara",
+  "added": "2026-10-25",
+  "stage": 0,
+  "due": "2026-10-26",
+  "fails": 0
+ },
+ {
+  "word": "neighbour",
+  "meaning": "komşu",
+  "example": "My new neighbour is Mark.",
+  "topic": "meet-sara",
+  "added": "2026-10-25",
+  "stage": 0,
+  "due": "2026-10-26",
+  "fails": 0
+ },
+ {
+  "word": "friendly",
+  "meaning": "arkadaş canlısı, sıcakkanlı",
+  "example": "My friend is friendly.",
+  "topic": "meet-sara",
+  "added": "2026-10-25",
+  "stage": 0,
+  "due": "2026-10-26",
+  "fails": 0
+ },
+ {
+  "word": "hobby",
+  "meaning": "hobi",
+  "example": "My hobby is photography.",
+  "topic": "meet-sara",
+  "added": "2026-10-25",
+  "stage": 0,
+  "due": "2026-10-26",
+  "fails": 0
+ },
+ {
+  "word": "nervous",
+  "meaning": "gergin, heyecanlı (kaygılı)",
+  "example": "I'm nervous at the moment.",
+  "topic": "meet-sara",
+  "added": "2026-10-25",
+  "stage": 0,
+  "due": "2026-10-26",
+  "fails": 0
+ },
+ {
+  "word": "introduce",
+  "meaning": "tanıştırmak, tanıtmak",
+  "example": "I want to introduce myself.",
+  "topic": "meet-sara",
+  "added": "2026-10-25",
+  "stage": 0,
+  "due": "2026-10-26",
+  "fails": 0
+ },
+ {
+  "word": "together",
+  "meaning": "birlikte",
+  "example": "Today we have breakfast together.",
+  "topic": "meet-sara",
+  "added": "2026-10-25",
+  "stage": 0,
+  "due": "2026-10-26",
+  "fails": 0
+ },
+ {
+  "word": "job",
+  "meaning": "iş, meslek",
+  "example": "My job is hard.",
+  "topic": "meet-sara",
+  "added": "2026-10-25",
+  "stage": 0,
+  "due": "2026-10-26",
+  "fails": 0
+ }
+]

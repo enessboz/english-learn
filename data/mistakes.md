@@ -25,3 +25,11 @@ NOT (öğrenci isteği, 2026-10-21): this/that/these/those konusu PDF'te yeterin
 - Virgül: iki cümleyi virgülle birleştirme (comma splice): "This is my phone, this is my pencil." -> nokta veya "and".
 - H görevi: 6 cümlenin 1'i (these) eksik kaldı.
 Gün 2'de kısa cevap drill'i yap.
+
+(2026-10-25, Blok 2: Meet Sara, 13 dk, hızlı)
+- Kelime tahmini 7/8 (flat bilinmedi), anlama içerik 4/4, kendi cümlen 4/4.
+- Isınma: "(uzaktaki çocuklar) these" -> those (yakın-uzak dikkat kaybı). "Yes it is" -> virgül: Yes, it is.
+- Yazılı cevaplarda be fiili unutuldu: "Mark's hobby photography" -> Mark's hobby is photography. / "The flowers for Mark" -> They are for Mark.
+- Üçüncü tekil -s: "Sara live" -> Sara lives (present simple konusu, ders günü gelecek). Artikel: "in small flat" -> in a small flat.
+- "introduce for" -> introduce herself to; "Sara introduce" -> she wants to introduce herself.
+- Yazım: griefriend -> girlfriend.
